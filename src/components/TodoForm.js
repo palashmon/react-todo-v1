@@ -19,7 +19,7 @@ class TodoForm extends Component {
 
         var val = this.state.newTodo.trim();
         if (val) {
-            //this.addTodo(val);
+            this.props.newTodoInsert(val);
             this.setState({ newTodo: '' });
         }
     };
