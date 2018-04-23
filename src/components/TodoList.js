@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoList extends Component {
     render() {
-        return <div className="todoListMain">Todo Items here...</div>;
+        return <section className="main">Todo Items here... WIP</section>;
     }
 }
 
