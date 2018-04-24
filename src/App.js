@@ -34,6 +34,28 @@ class App extends Component {
         });
     };
 
+    onHandleClick = () => {
+        this.setState({
+            todos: [
+                {
+                    id: this.uuid(),
+                    title: 'This is first todo',
+                    completed: false
+                },
+                {
+                    id: this.uuid(),
+                    title: 'This is second todo',
+                    completed: false
+                },
+                {
+                    id: this.uuid(),
+                    title: 'We can do this also',
+                    completed: false
+                }
+            ]
+        });
+    };
+
     toggleParentTodoStatus = updatedTodo => {
         this.setState({
             todos: this.state.todos.map(function(todo) {
@@ -50,7 +72,11 @@ class App extends Component {
                 <section className="todoapp">
                     <Header />
                     <TodoForm newTodoInsert={this.onNewTodoInsert} />
-                    <TodoList todos={this.state.todos} toggleParentTodo={this.toggleParentTodoStatus.bind(this)} />
+                    <TodoList
+                        todos={this.state.todos}
+                        toggleParentTodo={this.toggleParentTodoStatus.bind(this)}
+                        handleClick={this.onHandleClick}
+                    />
                 </section>
                 <Footer />
             </div>
