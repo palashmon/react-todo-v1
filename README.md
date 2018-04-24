@@ -19,9 +19,9 @@ This is a simple Todo app for learning React basics.
 
 ## Features
 
-*   [ ] Add a new `Todo` item
-*   [ ] Show the new todo added in `TodoList`
-*   [ ] Toggle _single_ `Todo` status as completed or not completed
+*   [x] Add a new `Todo` item
+*   [x] Show the new todo added in `TodoList`
+*   [x] Toggle _single_ `Todo` status as completed or not completed
 *   [ ] Toggle _all_ `Todo` status as completed or not completed
 *   [ ] Delete a `Todo`
 *   [ ] View either All, Completed or active `Todo` items only
