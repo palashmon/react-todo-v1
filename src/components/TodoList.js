@@ -38,9 +38,20 @@ class TodoList extends Component {
             todoItems.push(view);
         }, this);
 
+        var activeTodoCount = childTodos.reduce((accum, todo) => {
+            return todo.completed ? accum : accum + 1;
+        }, 0);
+
+        var completedCount = childTodos.length - activeTodoCount;
+
         let fullList = (
             <section className="main">
-                <input className="toggle-all" type="checkbox" />
+                <input
+                    className="toggle-all"
+                    type="checkbox"
+                    onChange={this.props.toggleAllTodo.bind(this)}
+                    checked={activeTodoCount === 0}
+                />
                 <ul className="todo-list">{todoItems}</ul>
                 <button
                     style={{ padding: '10px 20px', cursor: 'pointer', fontSize: 12 }}

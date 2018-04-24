@@ -66,6 +66,14 @@ class App extends Component {
         });
     };
 
+    toggleAllTodo = event => {
+        this.setState({
+            todos: this.state.todos.map(function(todo) {
+                return Object.assign({}, todo, { completed: event.target.checked });
+            })
+        });
+    };
+
     render() {
         return (
             <div>
@@ -75,6 +83,7 @@ class App extends Component {
                     <TodoList
                         todos={this.state.todos}
                         toggleParentTodo={this.toggleParentTodoStatus.bind(this)}
+                        toggleAllTodo={this.toggleAllTodo}
                         handleClick={this.onHandleClick}
                     />
                 </section>
