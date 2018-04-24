@@ -14,9 +14,9 @@ class TodoList extends Component {
         this.setState({ childTodos: nextProps.todos });
     }
 
-    renderTodoItem = todo => {
-        return <TodoItem todo={todo} key={key++} />;
-    };
+    renderTodoItem(todo) {
+        return <TodoItem todo={todo} key={key++} onToggle={this.props.toggleParentTodo.bind(this, todo)} />;
+    }
 
     renderFullList = todoItems => {
         return (

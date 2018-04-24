@@ -19,11 +19,27 @@ class App extends Component {
         };
     }
 
+    // Create UUID for each todo
+    uuid = () => {
+        return Math.floor(Math.random() * 90000) + 100000;
+    };
+
     onNewTodoInsert = title => {
         this.setState({
             todos: this.state.todos.concat({
+                id: this.uuid(),
                 title: title,
                 completed: false
+            })
+        });
+    };
+
+    toggleParentTodoStatus = updatedTodo => {
+        this.setState({
+            todos: this.state.todos.map(function(todo) {
+                return todo.id !== updatedTodo.id
+                    ? todo
+                    : Object.assign({}, todo, { completed: !updatedTodo.completed });
             })
         });
     };
@@ -34,7 +50,7 @@ class App extends Component {
                 <section className="todoapp">
                     <Header />
                     <TodoForm newTodoInsert={this.onNewTodoInsert} />
-                    <TodoList todos={this.state.todos} />
+                    <TodoList todos={this.state.todos} toggleParentTodo={this.toggleParentTodoStatus.bind(this)} />
                 </section>
                 <Footer />
             </div>

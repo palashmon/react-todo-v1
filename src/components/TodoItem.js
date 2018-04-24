@@ -12,7 +12,12 @@ class TodoItem extends Component {
         return (
             <li>
                 <div className="view">
-                    <input className="toggle" type="checkbox" />
+                    <input
+                        className="toggle"
+                        type="checkbox"
+                        checked={this.props.todo.completed}
+                        onChange={this.props.onToggle}
+                    />
                     <label>{this.props.todo.title}</label>
                 </div>
             </li>
