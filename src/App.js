@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import TodoFilter from './components/TodoFilter';
+import Utils from './utils/helpers';
 
 const ALL = 'All';
 const ACTIVE = 'Active';
@@ -20,13 +21,10 @@ class App extends Component {
         };
     }
 
-    // Create UUID for each todo
-    uuid = () => Math.floor(Math.random() * 90000) + 100000;
-
     onNewTodoInsert = title => {
         this.setState({
             todos: this.state.todos.concat({
-                id: this.uuid(),
+                id: Utils.uuid(),
                 title,
                 completed: false
             })
@@ -34,25 +32,7 @@ class App extends Component {
     };
 
     onHandleClick = () => {
-        this.setState({
-            todos: [
-                {
-                    id: this.uuid(),
-                    title: 'This is first todo',
-                    completed: false
-                },
-                {
-                    id: this.uuid(),
-                    title: 'This is second todo',
-                    completed: false
-                },
-                {
-                    id: this.uuid(),
-                    title: 'We can do this also',
-                    completed: false
-                }
-            ]
-        });
+        this.setState({ todos: Utils.items() });
     };
 
     toggleParentTodoStatus = updatedTodo => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Utils from '../utils/helpers';
 
 class TodoFilter extends Component {
     handleClearCompleted = () => {
@@ -15,8 +16,9 @@ class TodoFilter extends Component {
     };
 
     render() {
-        let { completedCount } = this.props;
+        let { completedCount, count } = this.props;
         let clearButton = null;
+        let activeTodoWord = Utils.pluralize(count, 'item');
         if (completedCount > 0) {
             clearButton = (
                 <button className="clear-completed" onClick={this.handleClearCompleted}>
@@ -27,7 +29,9 @@ class TodoFilter extends Component {
 
         return (
             <footer className="footer">
-                <strong className="todo-count">{this.props.count} left</strong>
+                <strong className="todo-count">
+                    {this.props.count} {activeTodoWord} left
+                </strong>
                 <ul className="filters">
                     <li key="1112221">
                         <a onClick={this.handleAll} href="#">
