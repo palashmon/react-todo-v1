@@ -15,7 +15,7 @@ class TodoFilter extends Component {
     };
 
     render() {
-        let { nowShowing, completedCount } = this.props;
+        let { completedCount } = this.props;
         let clearButton = null;
         if (completedCount > 0) {
             clearButton = (

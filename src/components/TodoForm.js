@@ -17,7 +17,7 @@ class TodoForm extends Component {
         if (event.keyCode !== ENTER_KEY) return;
         event.preventDefault();
 
-        var val = this.state.newTodo.trim();
+        let val = this.state.newTodo.trim();
         if (val) {
             this.props.newTodoInsert(val);
             this.setState({ newTodo: '' });

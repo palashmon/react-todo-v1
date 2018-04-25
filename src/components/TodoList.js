@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from '../components/TodoItem';
 
-let key = 0;
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -16,8 +15,8 @@ class TodoList extends Component {
 
     toggle(todoToToggle) {
         //debugger;
-        var todoCopy = JSON.parse(JSON.stringify(this.state.childTodos));
-        var found = todoCopy.find(v => v.id === todoToToggle.id);
+        let todoCopy = JSON.parse(JSON.stringify(this.state.childTodos));
+        let found = todoCopy.find(v => v.id === todoToToggle.id);
         if (found) {
             found.completed = !todoToToggle.completed;
             this.setState({ childTodos: todoCopy });
@@ -45,12 +44,7 @@ class TodoList extends Component {
             todoItems.push(view);
         }, this);
 
-        var activeTodoCount = childTodos.reduce((accum, todo) => {
-            return todo.completed ? accum : accum + 1;
-        }, 0);
-
-        var completedCount = childTodos.length - activeTodoCount;
-
+        let activeTodoCount = childTodos.reduce((accum, todo) => (todo.completed ? accum : accum + 1), 0);
         let fullList = (
             <section className="main">
                 <input
