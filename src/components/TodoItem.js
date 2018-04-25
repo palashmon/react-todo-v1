@@ -19,6 +19,7 @@ class TodoItem extends Component {
                         onChange={this.props.onToggle}
                     />
                     <label>{this.props.todo.title}</label>
+                    <button className="destroy" onClick={this.props.onDeleteClick} />
                 </div>
             </li>
         );

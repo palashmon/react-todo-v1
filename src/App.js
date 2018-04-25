@@ -74,6 +74,14 @@ class App extends Component {
         });
     };
 
+    deleteParentTodo = deletedTodo => {
+        this.setState({
+            todos: this.state.todos.filter(function(todo) {
+                return todo !== deletedTodo;
+            })
+        });
+    };
+
     render() {
         return (
             <div>
@@ -83,6 +91,7 @@ class App extends Component {
                     <TodoList
                         todos={this.state.todos}
                         toggleParentTodo={this.toggleParentTodoStatus.bind(this)}
+                        deleteParentTodo={this.deleteParentTodo.bind(this)}
                         toggleAllTodo={this.toggleAllTodo}
                         handleClick={this.onHandleClick}
                     />

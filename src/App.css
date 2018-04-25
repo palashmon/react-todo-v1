@@ -105,7 +105,7 @@ input[type='checkbox'] {
 
 .todoapp h1 {
     position: absolute;
-    top: -155px;
+    top: -185px;
     width: 100%;
     font-size: 100px;
     font-weight: 100;
@@ -261,7 +261,6 @@ label[for='toggle-all'] {
     width: 40px;
     height: 40px;
     margin: auto 0;
-    font-size: 30px;
     color: #cc9a9a;
     margin-bottom: 11px;
     transition: color 0.2s ease-out;
@@ -269,10 +268,15 @@ label[for='toggle-all'] {
 
 .todo-list li .destroy:hover {
     color: #af5b5e;
+    cursor: pointer;
 }
 
-.todo-list li .destroy:after {
-    content: 'X';
+.todo-list li .destroy:before {
+    font-family: FontAwesome;
+    content: '\f1f8';
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
 }
 
 .todo-list li:hover .destroy {

@@ -25,7 +25,14 @@ class TodoList extends Component {
     }
 
     renderTodoItem(todo) {
-        return <TodoItem todo={todo} key={todo.id} onToggle={this.props.toggleParentTodo.bind(this, todo)} />;
+        return (
+            <TodoItem
+                todo={todo}
+                key={todo.id}
+                onToggle={this.props.toggleParentTodo.bind(this, todo)}
+                onDeleteClick={this.props.deleteParentTodo.bind(this, todo)}
+            />
+        );
     }
 
     render() {
