@@ -39,12 +39,12 @@ class TodoFilter extends Component {
                         </a>
                     </li>
                     <li key="1112222">
-                        <a onClick={this.handleActive} href="#">
+                        <a onClick={this.handleCompleted} href="#">
                             Completed
                         </a>
                     </li>
                     <li key="1112223">
-                        <a onClick={this.handleCompleted} href="#">
+                        <a onClick={this.handleActive} href="#">
                             Active
                         </a>
                     </li>
