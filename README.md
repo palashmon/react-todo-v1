@@ -24,6 +24,8 @@ This is a simple Todo app for learning React basics.
 *   [x] Toggle _single_ `Todo` status as completed or not completed
 *   [x] Toggle _all_ `Todo` status as completed or not completed
 *   [x] Delete a `Todo`
-*   [ ] View either All, Completed or active `Todo` items only
-*   [ ] Remove all completed `Todo` from list
-*   [ ] View how many `Todo` are left to be completed
+*   [x] View either All, Completed or active `Todo` items only
+*   [x] Remove all completed `Todo` from list
+*   [x] View how many `Todo` are left in the list
+*   [ ] Fade display of a completed todo
+*   [ ] Edit a todo
