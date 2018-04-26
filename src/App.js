@@ -82,10 +82,10 @@ class App extends Component {
         let shownTodos = [];
         for (let i = 0; i < todos.length; i++) {
             if (nowShowing === ACTIVE) {
-                if (todos[i].completed) shownTodos = shownTodos.concat(todos[i]);
+                if (!todos[i].completed) shownTodos = shownTodos.concat(todos[i]);
             }
  else if (nowShowing === COMPLETED) {
-                if (!todos[i].completed) shownTodos = shownTodos.concat(todos[i]);
+                if (todos[i].completed) shownTodos = shownTodos.concat(todos[i]);
             }
  else shownTodos = shownTodos.concat(todos[i]);
         }
