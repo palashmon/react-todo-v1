@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class TodoItem extends Component {
     constructor(props) {
@@ -9,8 +10,14 @@ class TodoItem extends Component {
     }
 
     render() {
+        let liClasses = classNames({
+            'main-class': true,
+            completed: this.props.todo.completed,
+            editing: this.props.editing
+        });
+
         return (
-            <li>
+            <li className={liClasses}>
                 <div className="view">
                     <input
                         className="toggle"
