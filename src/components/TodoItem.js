@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 class TodoItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            editText: this.props.todo.title
-        };
-    }
+    state = {
+        editText: this.props.todo.title
+    };
 
     render() {
         let liClasses = classNames({

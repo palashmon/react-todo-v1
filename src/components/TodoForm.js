@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 
 const ENTER_KEY = 13;
 class TodoForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            newTodo: ''
-        };
-    }
+    state = {
+        newTodo: ''
+    };
 
     handleChange = event => {
         this.setState({ newTodo: event.target.value });

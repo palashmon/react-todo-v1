@@ -12,14 +12,11 @@ const ACTIVE = 'Active';
 const COMPLETED = 'Completed';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todos: [],
-            nowShowing: ALL,
-            editing: null
-        };
-    }
+    state = {
+        todos: [],
+        nowShowing: ALL,
+        editing: null
+    };
 
     onNewTodoInsert = title => {
         this.setState({
