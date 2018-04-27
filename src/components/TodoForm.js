@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const ENTER_KEY = 13;
 class TodoForm extends Component {
     state = {
         newTodo: ''
+    };
+    static propTypes = {
+        newTodoInsert: PropTypes.func
     };
 
     handleChange = event => {

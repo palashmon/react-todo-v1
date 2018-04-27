@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import TodoItem from '../components/TodoItem';
+import PropTypes from 'prop-types';
 
 class TodoList extends Component {
+    static propTypes = {
+        todos: PropTypes.array,
+        toggleParentTodo: PropTypes.func,
+        deleteParentTodo: PropTypes.func,
+        toggleAllTodo: PropTypes.func,
+        handleClick: PropTypes.func
+    };
     state = {
         childTodos: this.props.todos
     };

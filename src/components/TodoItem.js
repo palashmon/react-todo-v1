@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
+    static propTypes = {
+        todo: PropTypes.object,
+        editing: PropTypes.bool,
+        onToggle: PropTypes.func,
+        onDeleteClick: PropTypes.func
+    };
     state = {
         editText: this.props.todo.title
     };

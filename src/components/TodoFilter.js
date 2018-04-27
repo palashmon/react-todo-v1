@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import Utils from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 class TodoFilter extends Component {
+    static propTypes = {
+        completedCount: PropTypes.number,
+        count: PropTypes.number,
+        clearCompletedButton: PropTypes.func,
+        clickedAll: PropTypes.func,
+        clickedActive: PropTypes.func,
+        clickedCompleted: PropTypes.func
+    };
+
     handleClearCompleted = () => {
         this.props.clearCompletedButton();
     };
