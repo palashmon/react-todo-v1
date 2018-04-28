@@ -27,5 +27,5 @@ This is a simple Todo app for learning React basics.
 *   [x] View either All, Completed or active `Todo` items only
 *   [x] Remove all completed `Todo` from list
 *   [x] View how many `Todo` are left in the list
-*   [ ] Fade display of a completed todo
-*   [ ] Edit a todo
+*   [x] Fade display of a completed todo
+*   [x] Edit a todo
