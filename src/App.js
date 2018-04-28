@@ -59,6 +59,10 @@ class App extends Component {
         this.setState({ editing: todo.id });
     };
 
+    cancelParentTodo = todo => {
+        this.setState({ editing: null });
+    };
+
     saveParentTodo = (todoToSave, text) => {
         // Update the current todo text
         this.setState({
@@ -127,6 +131,7 @@ class App extends Component {
                         deleteParentTodo={this.deleteParentTodo.bind(this)}
                         editParentTodo={this.editParentTodo.bind(this)}
                         saveParentTodo={this.saveParentTodo.bind(this)}
+                        cancelParentTodo={this.cancelParentTodo.bind(this)}
                         toggleAllTodo={this.toggleAllTodo}
                         handleClick={this.onHandleClick}
                         editTodoId={editing}

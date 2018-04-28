@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+const ESCAPE_KEY = 27;
+const ENTER_KEY = 13;
 class TodoItem extends Component {
     static propTypes = {
         todo: PropTypes.object,
@@ -9,7 +11,8 @@ class TodoItem extends Component {
         onToggle: PropTypes.func,
         onDeleteClick: PropTypes.func,
         onEdit: PropTypes.func,
-        onSave: PropTypes.func
+        onSave: PropTypes.func,
+        onCancel: PropTypes.func
     };
     state = {
         editText: this.props.todo.title
@@ -59,6 +62,16 @@ class TodoItem extends Component {
         }
     };
 
+    handleKeyDown = event => {
+        if (event.which === ESCAPE_KEY) {
+            this.setState({ editText: this.props.todo.title });
+            this.props.onCancel(event);
+        }
+ else if (event.which === ENTER_KEY) {
+            this.handleSubmit(event);
+        }
+    };
+
     render() {
         let liClasses = classNames({
             'main-class': true,
@@ -86,6 +99,7 @@ class TodoItem extends Component {
                     value={this.state.editText}
                     onChange={this.handleChange}
                     onBlur={this.handleSubmit}
+                    onKeyDown={this.handleKeyDown}
                 />
             </li>
         );

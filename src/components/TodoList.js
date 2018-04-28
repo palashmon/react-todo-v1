@@ -11,6 +11,7 @@ class TodoList extends Component {
         handleClick: PropTypes.func,
         editParentTodo: PropTypes.func,
         saveParentTodo: PropTypes.func,
+        cancelParentTodo: PropTypes.func,
         editTodoId: PropTypes.string
     };
     state = {
@@ -41,6 +42,7 @@ class TodoList extends Component {
                 onDeleteClick={this.props.deleteParentTodo.bind(this, todo)}
                 onEdit={this.props.editParentTodo.bind(this, todo)}
                 onSave={this.props.saveParentTodo.bind(this, todo)}
+                onCancel={this.props.cancelParentTodo.bind(this, todo)}
                 editing={editTodoId === todo.id}
             />
         );
