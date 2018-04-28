@@ -55,11 +55,26 @@ class App extends Component {
         });
     };
 
+    editParentTodo = todo => {
+        this.setState({ editing: todo.id });
+    };
+
+    saveParentTodo = (todoToSave, text) => {
+        // Update the current todo text
+        this.setState({
+            todos: this.state.todos.map(
+                todo => (todo !== todoToSave ? todo : Object.assign({}, todo, { title: text }))
+            ),
+            editing: null
+        });
+    };
+
     clearCompleted = () => {
         this.setState({
             todos: this.state.todos.filter(todo => !todo.completed)
         });
     };
+
     handleClickAll = () => {
         this.setState({ nowShowing: ALL });
     };
@@ -71,7 +86,7 @@ class App extends Component {
     };
 
     render() {
-        let { todos, nowShowing } = this.state;
+        let { todos, nowShowing, editing } = this.state;
         let filter = null;
         let activeTodoCount = todos.reduce((accum, todo) => (todo.completed ? accum : accum + 1), 0);
         let completedCount = todos.length - activeTodoCount;
@@ -110,8 +125,11 @@ class App extends Component {
                         todos={shownTodos}
                         toggleParentTodo={this.toggleParentTodoStatus.bind(this)}
                         deleteParentTodo={this.deleteParentTodo.bind(this)}
+                        editParentTodo={this.editParentTodo.bind(this)}
+                        saveParentTodo={this.saveParentTodo.bind(this)}
                         toggleAllTodo={this.toggleAllTodo}
                         handleClick={this.onHandleClick}
+                        editTodoId={editing}
                     />
                     {filter}
                 </section>

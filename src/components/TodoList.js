@@ -8,7 +8,10 @@ class TodoList extends Component {
         toggleParentTodo: PropTypes.func,
         deleteParentTodo: PropTypes.func,
         toggleAllTodo: PropTypes.func,
-        handleClick: PropTypes.func
+        handleClick: PropTypes.func,
+        editParentTodo: PropTypes.func,
+        saveParentTodo: PropTypes.func,
+        editTodoId: PropTypes.string
     };
     state = {
         childTodos: this.props.todos
@@ -29,12 +32,16 @@ class TodoList extends Component {
     }
 
     renderTodoItem(todo) {
+        const { editTodoId } = this.props;
         return (
             <TodoItem
                 todo={todo}
                 key={todo.id}
                 onToggle={this.props.toggleParentTodo.bind(this, todo)}
                 onDeleteClick={this.props.deleteParentTodo.bind(this, todo)}
+                onEdit={this.props.editParentTodo.bind(this, todo)}
+                onSave={this.props.saveParentTodo.bind(this, todo)}
+                editing={editTodoId === todo.id}
             />
         );
     }
