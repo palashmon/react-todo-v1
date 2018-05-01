@@ -56,8 +56,7 @@ class TodoItem extends Component {
         let val = this.state.editText.trim();
         if (val) {
             this.props.onSave(val);
-        }
- else {
+        } else {
             this.props.onDeleteClick();
         }
     };
@@ -66,8 +65,7 @@ class TodoItem extends Component {
         if (event.which === ESCAPE_KEY) {
             this.setState({ editText: this.props.todo.title });
             this.props.onCancel(event);
-        }
- else if (event.which === ENTER_KEY) {
+        } else if (event.which === ENTER_KEY) {
             this.handleSubmit(event);
         }
     };

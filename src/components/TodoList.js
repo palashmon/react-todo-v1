@@ -71,8 +71,7 @@ class TodoList extends Component {
                     checked={activeTodoCount === 0}
                 />
             );
-        }
- else {
+        } else {
             testButton = (
                 <button
                     style={{ padding: '10px 20px', cursor: 'pointer', fontSize: 12, color: '#bfbfbf' }}
